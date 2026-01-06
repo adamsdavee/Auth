@@ -2,6 +2,7 @@ const express = require("express")
 const connectToMongoDB = require("./database/db")
 const authRoute = require("./routes/auth.route")
 const homeRoute = require("./routes/home.route")
+const adminRoute = require("./routes/admin.route")
 require("dotenv").config()
 
 const app = express()
@@ -13,7 +14,8 @@ connectToMongoDB()
 app.use(express.json())
 
 app.use("/api/auth", authRoute)
-app.use("/api", homeRoute)
+app.use("/api/home", homeRoute)
+app.use("/api/admin", adminRoute)
 
 app.get("/", (req, res) => {
    res.send("It is working!")

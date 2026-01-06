@@ -5,7 +5,7 @@ const UserModel = require("../models/user.model")
 
 const registerUser = async (req, res) => {
    try {
-      const { username, email, password, role } = req.body
+      const { username, email, password, roles } = req.body
       console.log(req.body)
       // If the database contain the same username or email passed
       const existingUser = await UserModel.findOne({
@@ -29,7 +29,7 @@ const registerUser = async (req, res) => {
          username: username,
          email: email,
          password: hashedPassword,
-         role: role || "user",
+         roles: roles,
       }
 
       await UserModel.create(newUser)
