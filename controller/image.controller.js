@@ -15,7 +15,8 @@ const uploadImage = async (req, res) => {
       }
 
       // upload to cloudinary
-      const { url, publicId } = await uploadToCloudinary(req.file)
+      console.log(req.file)
+      const { url, publicId } = await uploadToCloudinary(req.file.path)
 
       //   const newImage = {
       //      url: url,
