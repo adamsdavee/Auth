@@ -8,6 +8,8 @@ const adminMiddleware = (req, res, next) => {
       return
    }
 
+   console.log("Is an admin")
+
    next()
 }
 
